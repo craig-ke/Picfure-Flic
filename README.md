@@ -1,4 +1,4 @@
-# PICFLIX
+# PICFLIC
 This is a mobile application that displays photos. Users can view photos, search and like photos, which will be saved so they can refer to them later. The application sources photos from unsplash.
 
 ## User Stories
