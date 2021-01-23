@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "440796827256",
+    "project_id": "picflic-1477c",
+    "storage_bucket": "picflic-1477c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440796827256:android:cc038da29434c8057c678d",
+        "android_client_info": {
+          "package_name": "com.craigke.picflic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440796827256-o5q6tkm99jk8ubal6a16elvn0uetaamf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2aqDGT6MwTuvGflXWYmPPyAYXnrANWxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440796827256-o5q6tkm99jk8ubal6a16elvn0uetaamf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
