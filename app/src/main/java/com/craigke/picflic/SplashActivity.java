@@ -1,7 +1,10 @@
 package com.craigke.picflic;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -25,6 +28,9 @@ import retrofit2.Response;
 
 public class SplashActivity extends AppCompatActivity {
 
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
+
     @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
     @BindView(R.id.recyclerView)
@@ -38,6 +44,11 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        Log.d("Shared Pref Location", mRecentAddress);
+
 
         UnsplashInterface client= ApiClient.getClient().create(UnsplashInterface.class);
         Call<UnsplashAPIResponse> call = client.getSearchPhotos("London", Constants.UNSPLASH_API);

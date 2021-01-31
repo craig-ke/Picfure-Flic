@@ -1,16 +1,22 @@
 package com.craigke.picflic.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.craigke.picflic.ImageDetailFragment;
 import com.craigke.picflic.R;
 import com.craigke.picflic.model.Result;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -25,11 +31,12 @@ public ListImageAdapter(Context context, List<Result> results) {
         mContext = context;
         mResult = results;
         }
-public class ImageViewHolder extends RecyclerView.ViewHolder{
+    public class ImageViewHolder extends RecyclerView.ViewHolder{
     @BindView(R.id.userNameView)
     TextView mUserTextView;
     @BindView(R.id.categoryTextView) TextView mImageDescription;
     @BindView(R.id.ratingTextView) TextView mRatingView;
+    @BindView(R.id.display_image) ImageView mImageView;
 
     private Context context;
 
@@ -37,8 +44,10 @@ public class ImageViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         ButterKnife.bind(this,itemView);
         mContext = itemView.getContext();
+//        itemView.setOnClickListener(this);
     }
     public void bindImageViewer(Result results){
+        Picasso.get().load(results.getUrls().getSmall()).into(mImageView);
         mUserTextView.setText(results.getUser().getUsername());
         mImageDescription.setText(results.getDescription());
         mRatingView.setText("People:" + results.getUser().getTotalLikes()+ "/Likes");
